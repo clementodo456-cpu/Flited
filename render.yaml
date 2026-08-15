@@ -1,0 +1,14 @@
+services:
+  - type: worker
+    name: flitedstbot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: DATABASE_URL
+        value: tasks.db
+      - key: DEFAULT_TIMEZONE
+        value: UTC
